@@ -31,23 +31,14 @@ namespace CurrencyConverter
             {
                 Console.WriteLine("Enter converted amount");
                 var input = Console.ReadLine();
+                var isValidValue= Double.TryParse(input,out double inputResult);
 
-                while (input is object)
+                if (isValidValue)
                 {
-                    //тута ломаеца
-                    var value = Convert.ToDouble(input);
-                    if (value.GetType() == typeof(double))
-                    {
-                        return Convert.ToDouble(input);
-                    }
-                    else 
-                    {
-                        Console.WriteLine("Incorrect value format. Try againe");
-                        Console.ReadLine();
-                    }
+                    return inputResult;
                 }
-                //Console.WriteLine("Incorrect value format");
-                return Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Incorrect input value");
+                return amountEnter();
             }
             catch (Exception)
             {

@@ -11,7 +11,7 @@ namespace CurrencyConverterConsole
         {
             //Converter object
             /*var premiumConverter = new Converter("e672ae922ef1dda24627");*/
-            var converter = new Converter("e672ae922ef1dda24627");
+            Converter converter = new Converter("e672ae922ef1dda24627");
 
             //List of currencies
             /*var currencies = converter.GetAllCurrencies();
@@ -22,9 +22,11 @@ namespace CurrencyConverterConsole
             Console.WriteLine(string.Join(",", countries.Select(p => p.Name).ToArray()));*/
 
             ////Basic conversion
-            double currency = Convert.ToDouble(converter.amountEnter());
+            double currency = converter.amountEnter();
             var basic = converter.CurrencyConvert(currency, CurrencyType.USD, CurrencyType.EUR);
             Console.WriteLine(basic);
+
+
 
             ////History Single Date
             //var history = converter.GetHistory(CurrencyType.USD, CurrencyType.EUR, "2018-08-01");
