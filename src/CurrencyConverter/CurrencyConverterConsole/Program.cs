@@ -22,7 +22,7 @@ namespace CurrencyConverterConsole
             Console.WriteLine(string.Join(",", countries.Select(p => p.Name).ToArray()));*/
 
             ////Basic conversion
-            double currency = converter.amountEnter();
+            double currency = Convert.ToDouble(converter.amountEnter());
             var basic = converter.CurrencyConvert(currency, CurrencyType.USD, CurrencyType.EUR);
             Console.WriteLine(basic);
 

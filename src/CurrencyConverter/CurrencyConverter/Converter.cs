@@ -25,26 +25,29 @@ namespace CurrencyConverter
             return RequestHelper.ExchangeRate(from, to, ApiKey) * amount;
         }
 
-        public object amountEnter() 
+        public double amountEnter() 
         {
             try
             {
-                bool isUserWrong = true;
-                while (isUserWrong) 
+                Console.WriteLine("Enter converted amount");
+                var input = Console.ReadLine();
+
+                while (input is object)
                 {
-                    Console.WriteLine("Enter converted amount");
-                    var input = Console.ReadLine();
-                    if (input is double)
+                    //тута ломаеца
+                    var value = Convert.ToDouble(input);
+                    if (value.GetType() == typeof(double))
                     {
-                        return input;
+                        return Convert.ToDouble(input);
                     }
-                    else
+                    else 
                     {
-                        Console.WriteLine("Wrong value format");
-                        input = Console.ReadLine();
+                        Console.WriteLine("Incorrect value format. Try againe");
+                        Console.ReadLine();
                     }
                 }
-                
+                //Console.WriteLine("Incorrect value format");
+                return Convert.ToDouble(Console.ReadLine());
             }
             catch (Exception)
             {
